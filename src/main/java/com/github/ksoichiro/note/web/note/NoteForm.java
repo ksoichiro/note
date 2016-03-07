@@ -1,4 +1,4 @@
-package com.github.ksoichiro.note.web;
+package com.github.ksoichiro.note.web.note;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
