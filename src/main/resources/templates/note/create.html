@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="_layouts/default">
+<head>
+    <title>Notes</title>
+</head>
+<body>
+<div layout:fragment="content">
+<form th:action="@{/note/save}" th:object="${noteForm}" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <textarea th:field="*{content}" class="form-control markdown-editor"></textarea>
+        </div>
+        <div id="preview" class="col-md-6 markdown-body" style="min-height:200px;">
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    </div>
+</form>
+</div>
+
+<div layout:fragment="footer-script">
+<script>
+$('#content').bind('input change', function() {
+    $('#preview').html(marked($('#content').val()));
+});
+</script>
+</div>
+</body>
+</html>

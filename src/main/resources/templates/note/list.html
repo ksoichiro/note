@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="_layouts/default">
+<head>
+    <title>Notes</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div>
+        <a th:href="@{/note/create}" class="btn btn-primary">New note</a>
+    </div>
+    <div th:each="note : ${list}" th:object="${note}">
+        <a th:href="@{/note/edit/__${note.id}__}"><span th:text="${note.content}" class="note-content"></span></a>
+    </div>
+</div>
+
+<div layout:fragment="footer-script">
+<script>
+$('.note-content').each(function() {
+    $(this).html(marked($(this).text()));
+});
+</script>
+</div>
+</body>
+</html>

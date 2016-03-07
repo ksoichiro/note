@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/github-markdown-css/github-markdown.css}"/>
+    <style>
+        .markdown-editor {
+            min-width: 200px;
+            max-width: 980px;
+            min-height: 480px;
+        }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            min-height: 480px;
+            margin: 0 auto;
+        }
+    </style>
+    <script th:src="@{/lib/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{/lib/marked/marked.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main-content" layout:fragment="content"></div>
+</div>
+<div class="footer-script" layout:fragment="footer-script"></div>
+</body>
+</html>
